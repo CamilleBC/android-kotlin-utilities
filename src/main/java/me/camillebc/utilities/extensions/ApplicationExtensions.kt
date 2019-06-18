@@ -2,9 +2,14 @@ package com.camillebc.fusy.utilities
 
 import android.app.Application
 import android.content.Context.MODE_PRIVATE
-import com.camillebc.fusy.BuildConfig
+import me.camillebc.utilities.BuildConfig
 
+private const val APP_PREF = "AppPreferences"
 
+/**
+ * This should be copy/pasted in the main activity or application, as it's relying on the library BuildConfig
+ * instead of the app's
+ */
 fun Application.isFirstLaunch(): Boolean {
     val prefsName = APP_PREF
     val prefVersionCodeKey = "version_code"

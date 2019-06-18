@@ -10,17 +10,18 @@ import android.net.NetworkCapabilities
 import android.os.BatteryManager
 
 
-class HardwareStatusManager(private val context: Activity) {
+class HardwareStatusManager(private val context: Context) {
     enum class InternetStatus { OFFLINE, RESTRICTED, UNRESTRICTED }
     enum class BatteryStatus { DISCHARGING, CHARGING }
 
     fun getConnectivityStatus(): InternetStatus {
         if (!context.isPermissionGranted(Manifest.permission.ACCESS_NETWORK_STATE)) {
-            context.showPermissionsReasonAndRequest(
-                "We need to access the network state to check when to download fiction updates.\nPlease accept the request.",
-                arrayOf(Manifest.permission.ACCESS_NETWORK_STATE),
-                RC_NETWORK_STATE
-            )
+            // TODO("the check should be done in the main app")
+//            context.showpermissionsreasonandrequest(
+//                "we need to access the network state to check when to download fiction updates.\nplease accept the request.",
+//                arrayof(manifest.permission.access_network_state),
+//                rc_network_state
+//            rc_network_state)
         }
         val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         if (connectivityManager.activeNetworkInfo == null) return InternetStatus.OFFLINE

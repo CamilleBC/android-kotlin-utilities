@@ -1,7 +1,7 @@
 package com.camillebc.fusy.utilities
 
 import android.util.Log
-import com.camillebc.fusy.BuildConfig
+import me.camillebc.utilities.BuildConfig
 import kotlin.reflect.KClass
 
 /* Convenient wrappers over Android Log.* static methods */

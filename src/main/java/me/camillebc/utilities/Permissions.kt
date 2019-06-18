@@ -1,6 +1,7 @@
 package me.camillebc.utilities
 
 import android.app.Activity
+import android.content.Context
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
@@ -16,7 +17,7 @@ const val RC_NETWORK_STATE = 201
  *
  * @param permission Permission to check
  */
-fun Activity.isPermissionGranted(permission: String): Boolean =
+fun Context.isPermissionGranted(permission: String): Boolean =
     ContextCompat.checkSelfPermission(
         this,
         permission
@@ -27,7 +28,7 @@ fun Activity.isPermissionGranted(permission: String): Boolean =
  *
  * @param grantResult Result to check
  */
-fun Activity.isPermissionGranted(grantResult: Int): Boolean =
+fun Context.isPermissionGranted(grantResult: Int): Boolean =
     grantResult == PackageManager.PERMISSION_GRANTED
 
 /**
