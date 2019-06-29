@@ -51,4 +51,6 @@
     <color name="white">#FFFFFF</color>
     <color name="white1">#FAFAFA</color>
     <color name="white2">#F4F4F4</color>
+    <color name="transparent1">#07000000</color>
+    <color name="transparent2">#0F000000</color>
 </resources>

@@ -14,6 +14,8 @@ class HardwareStatusManager(private val context: Context) {
     enum class InternetStatus { OFFLINE, RESTRICTED, UNRESTRICTED }
     enum class BatteryStatus { DISCHARGING, CHARGING }
 
+    val isConnected = getConnectivityStatus() != InternetStatus.OFFLINE
+
     fun getConnectivityStatus(): InternetStatus {
         if (!context.isPermissionGranted(Manifest.permission.ACCESS_NETWORK_STATE)) {
             // TODO("the check should be done in the main app")
@@ -25,7 +27,7 @@ class HardwareStatusManager(private val context: Context) {
         }
         val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         if (connectivityManager.activeNetworkInfo == null) return InternetStatus.OFFLINE
-        val networkCapabilities = connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+        val networkCapabilities = connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)!!
         if (networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
             if (networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED)) {
                 return InternetStatus.UNRESTRICTED
