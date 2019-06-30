@@ -53,4 +53,5 @@
     <color name="white2">#F4F4F4</color>
     <color name="transparent1">#07000000</color>
     <color name="transparent2">#0F000000</color>
+    <color name="transparent3">#4F000000</color>
 </resources>
